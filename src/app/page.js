@@ -1,15 +1,15 @@
 "use client";
-import Image from "next/image";
-import { Home as MyHome } from "@/components/Home";
-import Navbar from "@/components/Navbar";
 import About from "@/components/About";
-import { BrowserRouter } from "react-router-dom";
-import { Home as CustumeHome } from "@/components/Home";
-import Experience from "@/components/Experience";
-import Tech from "@/components/Tech";
 import Contact from "@/components/Contact";
+import Home from "@/components/Home";
+import Navbar from "@/components/Navbar";
+import Image from "next/image";
+import Tech from "@/components/Tech";
+import Works from "@/components/Work";
 
-export default function Home() {
+import { BrowserRouter } from "react-router-dom";
+
+const Page = () => {
   const backgroundStyle = {
     backgroundImage: 'url("/images/homeImage.jpeg")',
     backgroundSize: "cover",
@@ -25,13 +25,16 @@ export default function Home() {
           style={backgroundStyle}
         >
           <Navbar />
-          <CustumeHome />
+          <Home />
         </div>
         <About />
-        <Experience />
         <Tech />
+        <Works/>
+        {/* <Experience /> */}
+
         <Contact />
       </div>
     </BrowserRouter>
   );
-}
+};
+export default Page;

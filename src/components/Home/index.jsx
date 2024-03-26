@@ -4,7 +4,7 @@ import Spline from "@splinetool/react-spline";
 import { Hometext } from "./Text";
 import App from "./3d_image/App";
 
-export const Home = () => {
+const Home = () => {
   return (
     <div className="flex flex-col h-screen w-screen justify-center items-center overflow-hidden  ">
       <div className="h-1/4 w-full">
@@ -16,3 +16,4 @@ export const Home = () => {
     </div>
   );
 };
+export default Home;

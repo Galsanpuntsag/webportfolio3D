@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
-import { fadeIn, textVariant } from "../../utils/motion";
+import { fadeIn, textVariant } from "../utils/motion";
 import { web, mobile, backend, creator } from "../../../public/assets";
 
 import { styles } from "@/styles";
@@ -52,20 +52,10 @@ const ServiceCard = ({ title, icon, index }) => {
 };
 
 const About = () => {
-  // const backgroundStyle2 = {
-  //   backgroundImage: 'url("/images/circleBg.jpeg")',
-  //   backgroundSize: "cover",
-  //   backgroundPosition: "center",
-  //   width: "100vw",
-  //   height: "100vh",
-  // };
-
   return (
     <div className="backgroundImage">
       <motion.div variants={textVariant()}>
-        <h1
-          className={`${styles.sectionSubText} text-secondary uppercase tracking-wider`}
-        >
+        <h1 className={`text-secondary  uppercase tracking-wider`}>
           Introduction
         </h1>
         <h1 className={`${styles.sectionHeadText} 2xl:text-7xl`}>Overview.</h1>
