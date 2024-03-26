@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         sans: ["Miss Fajardose", "cursive"],
         abc: ["Flavors", "cursive"],
+        miss: ["Miss Fajardose", "cursive"],
       },
     },
   },

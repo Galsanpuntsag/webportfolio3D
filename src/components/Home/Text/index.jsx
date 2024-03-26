@@ -22,7 +22,7 @@ export const Hometext = () => {
         />
       </h1>
 
-      <p className="text-lg w-10/12 shadow-2xl text-center font-abc sm:text-left">
+      <p className="text-xl">
         You can learn more about me by clicking the button below.
       </p>
 
