@@ -3,3 +3,11 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Flavors&family=Miss+Fajardose&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+.backgroundImage {
+  background-image: url("/images/circleBg.jpeg");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}

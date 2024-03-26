@@ -1,79 +1,99 @@
 "use client";
-import React from "react";
 
-export default function Navbar() {
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { styles } from "../../styles";
+
+import { FaAlignLeft } from "react-icons/fa6";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+
+export const navLinks = [
+  {
+    id: "home",
+    title: "Home",
+  },
+  {
+    id: "about",
+    title: "About",
+  },
+  {
+    id: "work",
+    title: "Work",
+  },
+  {
+    id: "skill",
+    title: "Skill",
+  },
+  {
+    id: "contact",
+    title: "Contact",
+  },
+];
+
+const Navbar = () => {
+  const [active, setActive] = useState("");
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <nav className="flex justify-between bg-slate-800 items-center  z-10 font-abc">
-      <div
-        className="w-32  h-10   md:w-40 ml-5  bg-cover bg-center"
-        style={{ backgroundImage: `url('/images/mylogo.png')` }}
-      ></div>
-      <div className="relative flex h-16 mr-5 items-center justify-between">
-        <div className="flex flex-1 items-center justify-between sm:items-stretch sm:justify-start">
-          <div className="hidden sm:ml-6 sm:block md:block">
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="bg-gray-900  text-purple-400 rounded-md px-3 py-2 text-sm font-medium"
-                aria-current="page"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="text-purple-400 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-              >
-                Skill
-              </a>
-              <a
-                href="#"
-                className="text-purple-400 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-              >
-                Projects
-              </a>
-              <a
-                href="#"
-                className="text-purple-400 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-              >
-                Contact
-              </a>
-            </div>
+    <nav
+      className={`${styles.paddingX} w-full flex items-center p-1 fixed top-0 z-20 bg-slate-950`}
+    >
+      <div className="w-full flex justify-between mx-2 items-center max-w-7xl">
+        <img src="/images/mylogo.png" alt="" className="h-10 w-40" />
+
+        {/* md display? */}
+        <ul className="list-none hidden md:flex flex-row gap-10">
+          {navLinks.map((link) => (
+            <li
+              key={link.id}
+              className={`${
+                active === link.title ? "text-purple-300" : "text-white"
+              } hover: text-white text-[20px] font-medium cursor-pointer`}
+              onClick={() => setActive(link.title)}
+            >
+              <a href={`${link.id}`}> {link.title}</a>
+            </li>
+          ))}
+        </ul>
+        {/* sm display? */}
+        <div className=" md:hiiden ">
+          {toggle ? (
+            <AiOutlineCloseCircle
+              className="w-10 h-8 text-purple-600 cursor-pointer "
+              onClick={() => setToggle(!toggle)}
+            />
+          ) : (
+            <FaAlignLeft
+              className="w-6 h-6 text-purple-600 cursor-pointer "
+              onClick={() => setToggle(!toggle)}
+            />
+          )}{" "}
+          <div
+            className={`${
+              !toggle ? "hidden" : "flex"
+            } p-6 black-gradient absolute top-20 right-0  mx-4 my-2 min-w-[140px]  z-10 rounded-xl `}
+          >
+            <ul className="list-none flex justify-center items-center flex-col gap-4">
+              {navLinks.map((link) => (
+                <li
+                  key={link.id}
+                  className={`${
+                    active === link.title ? "text-purple-300" : "text-white"
+                  } font-bold cursor-pointer text-[16px]`}
+                  onClick={() => {
+                    setToggle(!toggle);
+                    setActive(link.title);
+                  }}
+                >
+                  <a href={`${link.id}`}> {link.title}</a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
-
-      <div className=" dropdown dropdown-end sm:hidden">
-        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="block h-5 w-5 text-purple-400 "
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h7"
-            />
-          </svg>
-        </div>
-        <ul
-          tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-36 bg-slate-800"
-        >
-          <li>
-            <a className=" text-purple-400 text-xl">Home</a>
-          </li>
-          <li>
-            <a className=" text-purple-400 text-xl">Portfolio</a>
-          </li>
-          <li>
-            <a className=" text-purple-400 text-xl">About</a>
-          </li>
-        </ul>
-      </div>
     </nav>
   );
-}
+};
+
+export default Navbar;

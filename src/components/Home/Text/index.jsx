@@ -4,7 +4,7 @@ import Typewriter from "typewriter-effect";
 
 export const Hometext = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-2 ">
+    <div className="flex flex-col justify-center text-purple-300 items-center gap-2 ">
       <h2 className="text-4xl">Hi? I'm Galsanpuntsag.</h2>
       <h1 className="flex text-xl gap-2">
         I'm a

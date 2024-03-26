@@ -25,25 +25,6 @@ import {
   threejs,
 } from "../../public/assets";
 
-export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "skill",
-    title: "Skill",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
-];
-
 const technologies = [
   {
     name: "HTML 5",
@@ -247,4 +228,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { technologies, experiences, testimonials, projects };
