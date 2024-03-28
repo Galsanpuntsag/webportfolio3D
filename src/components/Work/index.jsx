@@ -70,6 +70,27 @@ const projects = [
     image: "/assets/tripguide.png",
     source_code_link: "https://github.com/",
   },
+  {
+    name: "Trip Guide",
+    description:
+      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "text-blue-400",
+      },
+      {
+        name: "supabase",
+        color: "text-green-400",
+      },
+      {
+        name: "css",
+        color: "text-pink-500",
+      },
+    ],
+    image: "/assets/tripguide.png",
+    source_code_link: "https://github.com/",
+  },
 ];
 
 const ProjectCard = ({ project, index }) => {

@@ -1,9 +1,8 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import { useTexture } from "@react-three/drei";
-import { Decal, Float, OrbitControls, Preload } from "@react-three/drei";
+import React from "react";
 import { SectionWrapper } from "@/hoc";
-import CanvasLoader from "../Loader";
+import { Tilt } from "react-tilt";
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../utils/motion";
 
 const technologies = [
   {
@@ -54,45 +53,39 @@ const technologies = [
     name: "figma",
     icon: "/assets/tech/figma.png",
   },
-  {
-    name: "docker",
-    icon: "/assets/tech/docker.png",
-  },
 ];
 
-const Ball = ({ imgUrl }) => {
-  const [decal] = useTexture([imgUrl]);
+const defaultOptions = {
+  reverse: true, // reverse the tilt direction
+  max: 90, // max tilt rotation (degrees)
+  perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+  scale: 1.5, // 2 = 200%, 1.5 = 150%, etc..
+  speed: 100, // Speed of the enter/exit transition
+  transition: true, // Set a transition on enter/exit.
+  axis: null, // What axis should be disabled. Can be X or Y.
+  reset: true, // If the tilt effect has to be reset on exit.
+  easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+};
+
+const TechCard = ({ name, icon, index }) => {
   return (
-    <Float>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
-        <icosahedronGeometry args={[1, 1]} />
-        <meshStandardMaterial
-          color="#fff8eb"
-          poLygonOffset
-          polygonOffsetFactor={-5}
-          flatShading
-        />
-        <Decal
-          position={[0, 0, 1]}
-          rotation={[2 * Math.PI, 0, 6.25]}
-          flatShading
-          map={decal}
-        />
-      </mesh>
-    </Float>
+    <Tilt options={defaultOptions} style={{ height: 60, width: 60, gap: 20 }}>
+      <motion.div
+        key={index}
+        variants={fadeIn("left", "spring", 0.5 * index, 0.75)}
+      >
+        <img src={icon} alt="" />
+        {name}
+      </motion.div>
+    </Tilt>
   );
 };
 
 const Tech = () => {
   return (
-    <div className="flex flex-row flex-wrap text-white justify-center gap-10">
-      {technologies.map((tech) => (
-        <div className="w-28 h-28" key={tech.name}>
-          <img src={tech.icon} alt="" />
-          {tech.name}
-        </div>
+    <div className="flex flex-wrap text-white justify-center items-center gap-14">
+      {technologies.map((tech, index) => (
+        <TechCard key={tech.name} index={index} {...tech} />
       ))}
     </div>
   );

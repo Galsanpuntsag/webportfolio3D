@@ -37,10 +37,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center p-1 fixed top-0 z-20 bg-slate-950`}
+      className={`${styles.paddingX} w-full flex items-center p-1 fixed top-0 z-20 bg-opacity-100 shadow-2xl`}
     >
-      <div className="w-full flex justify-between mx-2 items-center max-w-7xl">
-        <img src="/images/mylogo.png" alt="" className="h-10 w-40" />
+      <div className="w-full flex justify-between items-center max-w-7xl">
+        <img src="/images/mylogo.png" alt="" className="h-10 w-28" />
 
         {/* md display? */}
         <ul className="list-none hidden md:flex flex-row gap-10">

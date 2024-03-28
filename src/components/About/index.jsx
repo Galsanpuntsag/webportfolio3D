@@ -30,21 +30,18 @@ const services = [
 
 const ServiceCard = ({ title, icon, index }) => {
   return (
-    <Tilt className="xs:w-[200px] w-full">
+    <Tilt>
       <motion.div
-        key={index}
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+        variants={fadeIn("right", "spring", 1 * index, 0.75)}
         className="w-full green-pink-grtadient  p-1 rounded-md shadow-card"
       >
         <div
           options={{ max: 45, scale: 1, speed: 450 }}
-          className="bg-gradient-to-br from-purple-950 via-black to-slate-800 rounded-3xl py-5 px-12 min-h-[200px] flex justify-evenly items-center flex-col "
+          className="bg-gradient-to-br from-purple-950 via-black to-slate-800 rounded-3xl min-h-[100px] flex justify-evenly items-center flex-col "
         >
-          <img src={icon} alt="" className="w-16 h-16 object-contain" />
+          <img src={icon} alt="" className="w-12 h-12 object-contain" />
 
-          <h3 className="text-white text-[20px] font-bold text-center">
-            {title}
-          </h3>
+          <h3 className="text-white text-md font-bold text-center">{title}</h3>
         </div>
       </motion.div>
     </Tilt>
@@ -53,16 +50,16 @@ const ServiceCard = ({ title, icon, index }) => {
 
 const About = () => {
   return (
-    <div className="backgroundImage">
+    <div className="flex flex-col justify-center items-center overflow-hidden gap-1 sm:gap-5">
       <motion.div variants={textVariant()}>
-        <h1 className={`text-secondary  uppercase tracking-wider`}>
-          Introduction
+        <h1 className="text-purple-300 text-lg">Introduction</h1>
+        <h1 className={`${styles.sectionHeadText} text-4xl 2xl:text-7xl`}>
+          Overview.
         </h1>
-        <h1 className={`${styles.sectionHeadText} 2xl:text-7xl`}>Overview.</h1>
       </motion.div>
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className=" mt-4 text-white  max-w-3xl text-xl shadow-2xl leading-[30px]"
+        className=" text-white w-10/12 max-w-3xl text-md shadow-2xl"
       >
         I'm a skilled software developer with experience in TypeScript and
         JavaScript, and expertise in frameworks like React, Node.js, and
@@ -70,7 +67,7 @@ const About = () => {
         create efficient, scalable, and user-friendly solutions that solve
         real-world problems. Let's work together to bring your ideas to life!
       </motion.p>
-      <div className=" ">
+      <div className="w-11/12">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

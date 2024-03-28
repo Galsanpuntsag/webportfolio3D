@@ -17,6 +17,22 @@ const Page = () => {
     width: "100vw",
     height: "100vh",
   };
+
+  const backgroundStyle2 = {
+    backgroundImage: 'url("/images/circleBg.jpeg")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100vw",
+    height: "100vh",
+  };
+
+  const backgroundStyle3 = {
+    backgroundImage: 'url("/images/bgImage5.jpeg")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100vw",
+    height: "100vh",
+  };
   return (
     <BrowserRouter>
       <div className="relative z-0">
@@ -27,9 +43,19 @@ const Page = () => {
           <Navbar />
           <Home />
         </div>
-        <About />
-        <Tech />
-        <Works/>
+        <div
+          className="overflow-hidden flex items-center justify-center"
+          style={backgroundStyle2}
+        >
+          <About />
+        </div>
+        <div
+          className="overflow-hidden flex items-center justify-center"
+          style={backgroundStyle3}
+        >
+          <Tech />
+        </div>
+        <Works />
         {/* <Experience /> */}
 
         <Contact />
