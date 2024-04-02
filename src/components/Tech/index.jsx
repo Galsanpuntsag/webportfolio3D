@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import { SectionWrapper } from "@/hoc";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn } from "../utils/motion";
 
 const technologies = [
   {

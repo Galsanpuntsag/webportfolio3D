@@ -1,9 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { styles } from "../../styles";
-
 import { FaAlignLeft } from "react-icons/fa6";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 

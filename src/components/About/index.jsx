@@ -3,7 +3,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
 import { fadeIn, textVariant } from "../utils/motion";
-import { web, mobile, backend, creator } from "../../../public/assets";
 
 import { styles } from "@/styles";
 

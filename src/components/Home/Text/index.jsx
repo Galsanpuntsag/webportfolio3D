@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Typewriter from "typewriter-effect";
 import { useRouter } from "next/navigation";

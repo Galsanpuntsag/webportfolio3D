@@ -1,6 +1,6 @@
 "use client";
+
 import React from "react";
-import Spline from "@splinetool/react-spline";
 import { Hometext } from "./Text";
 import App from "./3d_image/App";
 import { SectionWrapper } from "@/hoc";

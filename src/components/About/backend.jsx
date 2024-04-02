@@ -1,10 +1,10 @@
 "use client";
+
 import React from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
 
 import { FaGithub, FaDatabase } from "react-icons/fa6";
 import { AiOutlineGlobal } from "react-icons/ai";
