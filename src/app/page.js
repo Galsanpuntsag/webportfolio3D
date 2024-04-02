@@ -11,7 +11,7 @@ import { BrowserRouter } from "react-router-dom";
 
 const Page = () => {
   const backgroundStyle = {
-    backgroundImage: 'url("/images/homeImage.jpeg")',
+    backgroundImage: 'url("/images/Neon.jpeg")',
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100vw",
@@ -19,7 +19,7 @@ const Page = () => {
   };
 
   const backgroundStyle2 = {
-    backgroundImage: 'url("/images/circleBg.jpeg")',
+    backgroundImage: 'url("/images/bgImageTech.jpeg")',
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100vw",
@@ -27,7 +27,21 @@ const Page = () => {
   };
 
   const backgroundStyle3 = {
-    backgroundImage: 'url("/images/bgImage5.jpeg")',
+    backgroundImage: 'url("/images/tsats.jpeg")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100vw",
+    height: "100vh",
+  };
+  const backgroundStyle4 = {
+    backgroundImage: 'url("/images/effect.jpeg")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100vw",
+    height: "100vh",
+  };
+  const backgroundStyle5 = {
+    backgroundImage: 'url("/images/homeImage.jpeg")',
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100vw",
@@ -50,15 +64,21 @@ const Page = () => {
           <About />
         </div>
         <div
+          className="overflow-y-scroll flex items-center justify-center"
+          style={backgroundStyle4}
+        >
+          <Works />
+        </div>
+        <div
           className="overflow-hidden flex items-center justify-center"
           style={backgroundStyle3}
         >
           <Tech />
         </div>
-        <Works />
-        {/* <Experience /> */}
 
-        <Contact />
+        <div style={backgroundStyle5}>
+          <Contact />
+        </div>
       </div>
     </BrowserRouter>
   );

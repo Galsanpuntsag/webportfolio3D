@@ -8,9 +8,9 @@ import { styles } from "@/styles";
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Income Expence tracker",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Web-based platform that allows users to control income and expense. Also, User can see from chart that your income and expence balance this a week, a year and a week. ",
     tags: [
       {
         name: "react",
@@ -25,13 +25,13 @@ const projects = [
         color: "text-pink-500",
       },
     ],
-    image: "/assets/carrent.png",
+    image: "/assets/Income.png",
     source_code_link: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "Food Delivery",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Web application that enables users to order food. User need to save your location and information. Then User can order food. ",
     tags: [
       {
         name: "react",
@@ -46,7 +46,7 @@ const projects = [
         color: "text-pink-500",
       },
     ],
-    image: "/assets/jobit.png",
+    image: "/assets/food.png",
     source_code_link: "https://github.com/",
   },
   {
@@ -67,13 +67,13 @@ const projects = [
         color: "text-pink-500",
       },
     ],
-    image: "/assets/tripguide.png",
+    image: "/assets/nomad.png",
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "Admin Page",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Admin web application that enables super admin to control orders, add food and categories. Additionally, admins can change the status of orders from 'progressing' to 'delivery'.",
     tags: [
       {
         name: "nextjs",
@@ -88,48 +88,54 @@ const projects = [
         color: "text-pink-500",
       },
     ],
-    image: "/assets/tripguide.png",
+    image: "/assets/admin.png",
     source_code_link: "https://github.com/",
   },
 ];
-
 const ProjectCard = ({ project, index }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div
+      key={project.name}
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+    >
       <Tilt
         options={{
           max: 45,
           scale: 1,
           speed: 450,
         }}
-        className="p-5 rounded-2xl bg-slate-950 h-full  sm:w-[360px] w-full"
+        className="p-5 rounded-2xl bg-gray-800 h-full sm:w-[360px] w-full"
       >
-        <div className="relative w-full h-[230px]">
+        <div className="relative w-full h-[200px]">
           <img
             src={project.image}
             alt={project.name}
             className="w-full h-full rounded-2xl object-cover"
           />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
+            <a
+              href={project.source_code_link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
             >
               <img
                 src="/assets/github.png"
-                alt="github "
+                alt="github"
                 className="w-1/2 h-1/2 object-contain"
               />
-            </div>
+            </a>
           </div>
         </div>
         <div className="mt-5">
           <h3 className="font-bold text-[24px]">{project.name}</h3>
-          <p className="mt-2 text-[14px]"> {project.description}</p>
+          <p className="mt-2 text-[14px]">{project.description}</p>
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <p className={`text-[18px]  ${tag.color}`}>#{tag.name}</p>
+            <p key={tag.name} className={`text-[18px] ${tag.color}`}>
+              #{tag.name}
+            </p>
           ))}
         </div>
       </Tilt>
@@ -137,17 +143,17 @@ const ProjectCard = ({ project, index }) => {
   );
 };
 
-const Works = () => {
+const Work = () => {
   return (
     <>
-      <motion.div variants={textVariant()} className="">
+      <motion.div variants={textVariant()} className="text-2xl flex flex-col">
         <h1 className={styles.sectionSubText}>My work</h1>
         <h1 className={`${styles.sectionHeadText}`}>Projects.</h1>
       </motion.div>
       <div className="w-full flex">
         <motion.div
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3max-w-3xl leading-8"
+          className="mt-3 max-w-3xl leading-8 2xl:text-2xl"
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each projects is briefly descriped
@@ -165,4 +171,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "work");
+export default SectionWrapper(Work, "work");

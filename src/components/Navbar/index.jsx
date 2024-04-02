@@ -9,7 +9,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export const navLinks = [
   {
-    id: "home",
+    id: "/",
     title: "Home",
   },
   {
@@ -18,8 +18,8 @@ export const navLinks = [
   },
 
   {
-    id: "skill",
-    title: "Skill",
+    id: "tech",
+    title: "Tech",
   },
   {
     id: "work",
@@ -32,32 +32,32 @@ export const navLinks = [
 ];
 
 const Navbar = () => {
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState(navLinks[0].title);
   const [toggle, setToggle] = useState(false);
 
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center p-1 fixed top-0 z-20 bg-opacity-100 shadow-2xl`}
+      className={`w-full flex items-center justify-center p-1 fixed top-0 z-20 bg-opacity-100 shadow-2xl`}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl">
+      <div className="w-full flex justify-between items-center mx-3 max-w-7xl">
         <img src="/images/mylogo.png" alt="" className="h-10 w-28" />
 
         {/* md display? */}
-        <ul className="list-none hidden md:flex flex-row gap-10">
+        <div className="list-none hidden md:flex flex-row gap-10">
           {navLinks.map((link) => (
-            <li
+            <a
               key={link.id}
+              href={`#${link.id}`}
               className={`${
-                active === link.title ? "text-purple-300" : "text-white"
-              } hover: text-white text-[20px] font-medium cursor-pointer`}
+                active === link.title ? "text-purple-400" : "text-white"
+              } hover:text-white text-2xl font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
-              <a href={`${link.id}`}> {link.title}</a>
-            </li>
+              {link.title}
+            </a>
           ))}
-        </ul>
-        {/* sm display? */}
-        <div className=" md:hiiden ">
+        </div>
+        <div className="flex md:hidden">
           {toggle ? (
             <AiOutlineCloseCircle
               className="w-10 h-8 text-purple-600 cursor-pointer "
@@ -68,11 +68,11 @@ const Navbar = () => {
               className="w-6 h-6 text-purple-600 cursor-pointer "
               onClick={() => setToggle(!toggle)}
             />
-          )}{" "}
+          )}
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0  mx-4 my-2 min-w-[140px]  z-10 rounded-xl `}
+            } p-4 absolute top-16 right-0  mx-4 my-2 min-w-[140px]  bg-slate-950  z-10 rounded-xl `}
           >
             <ul className="list-none flex justify-center items-center flex-col gap-4">
               {navLinks.map((link) => (
@@ -80,13 +80,13 @@ const Navbar = () => {
                   key={link.id}
                   className={`${
                     active === link.title ? "text-purple-300" : "text-white"
-                  } font-bold cursor-pointer text-[16px]`}
+                  } font-bold cursor-pointer`}
                   onClick={() => {
-                    setToggle(!toggle);
+                    setToggle(false);
                     setActive(link.title);
                   }}
                 >
-                  <a href={`${link.id}`}> {link.title}</a>
+                  <a href={`#${link.id}`}>{link.title}</a>
                 </li>
               ))}
             </ul>

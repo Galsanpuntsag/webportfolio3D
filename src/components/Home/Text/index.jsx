@@ -4,9 +4,11 @@ import Typewriter from "typewriter-effect";
 
 export const Hometext = () => {
   return (
-    <div className="flex flex-col justify-center text-purple-300 items-center gap-2 ">
-      <h2 className="text-3xl">Hi? I'm Galsanpuntsag.</h2>
-      <h1 className="flex text-xl gap-2">
+    <div className="flex flex-col shadow-2xl justify-center text-purple-300 items-center gap-2 2xl:gap-5 ">
+      <h2 className="text-3xl lg:text-6xl 2xl:text-8xl">
+        Hi? I'm Galsanpuntsag.
+      </h2>
+      <h1 className="flex text-xl gap-2 lg:text-3xl">
         I'm a
         <Typewriter
           options={{
@@ -22,7 +24,7 @@ export const Hometext = () => {
         />
       </h1>
 
-      <p className="text-sm text-center w-80 min-w-80 ">
+      <p className="text-sm text-center w-80 min-w-80 lg:text-lg 2xl:w-96 2xl:text-2xl">
         I develop 3D visuals, user interface and web applications. You can learn
         more about me by clicking the button below.
       </p>

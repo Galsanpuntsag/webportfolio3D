@@ -83,7 +83,7 @@ const TechCard = ({ name, icon, index }) => {
 
 const Tech = () => {
   return (
-    <div className="flex flex-wrap text-white justify-center items-center gap-14">
+    <div className="flex flex-wrap full mx-10 text-white justify-center items-center gap-14">
       {technologies.map((tech, index) => (
         <TechCard key={tech.name} index={index} {...tech} />
       ))}
@@ -91,4 +91,4 @@ const Tech = () => {
   );
 };
 
-export default SectionWrapper(Tech, "");
+export default SectionWrapper(Tech, "tech");

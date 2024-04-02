@@ -17,4 +17,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default SectionWrapper(Home, "/");
