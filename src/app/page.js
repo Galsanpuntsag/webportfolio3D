@@ -3,7 +3,6 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Home from "@/components/Home";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 import Tech from "@/components/Tech";
 import Works from "@/components/Work";
 

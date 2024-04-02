@@ -11,7 +11,7 @@ const Home = () => {
       <div className=" h-1/4 w-full">
         <Hometext />
       </div>
-      <div className="flex-none h-1/2 w-full">
+      <div className="flex-none h-1/2 w-full root">
         <App />
       </div>
     </div>
