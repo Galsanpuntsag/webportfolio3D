@@ -60,7 +60,7 @@ const Page = () => {
         <About />
       </div>
       <div
-        className="overflow-y-scroll flex items-center justify-center"
+        className="overflow-y-scroll flex justify-center items-center"
         style={backgroundStyle4}
       >
         <Works />
