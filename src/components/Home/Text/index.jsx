@@ -22,7 +22,7 @@ export const Hometext = () => {
   };
 
   return (
-    <div className="flex flex-col shadow-2xl justify-center text-purple-300 items-center gap-2 2xl:gap-5 ">
+    <div className="flex flex-col shadow-2xl justify-center items-center gap-2 2xl:gap-5 ">
       <h2 className="text-3xl lg:text-6xl 2xl:text-8xl">
         Hi? I'm Galsanpuntsag.
       </h2>
