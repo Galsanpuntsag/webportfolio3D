@@ -3,7 +3,7 @@ import React from "react";
 import { SectionWrapper } from "@/hoc";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
-import { fadeIn } from "../utils/motion";
+import { fadeIn, textVariant } from "../utils/motion";
 
 const technologies = [
   {
@@ -54,6 +54,8 @@ const technologies = [
     name: "figma",
     icon: "/assets/tech/figma.png",
   },
+  { name: "QraphQL", icon: "/assets/tech/graphql.jpeg" },
+  { name: "Jest", icon: "/assets/tech/jest.jpeg" },
 ];
 
 const defaultOptions = {
@@ -70,10 +72,14 @@ const defaultOptions = {
 
 const TechCard = ({ name, icon, index }) => {
   return (
-    <Tilt options={defaultOptions} style={{ height: 60, width: 60, gap: 20 }}>
+    <Tilt
+      options={defaultOptions}
+      className=" w-[60px] h-[60px] lg:w-28 lg:h-28"
+    >
       <motion.div
         key={index}
         variants={fadeIn("left", "spring", 0.5 * index, 0.75)}
+        className="font-bold gap-3"
       >
         <img src={icon} alt="" />
         {name}
@@ -84,10 +90,17 @@ const TechCard = ({ name, icon, index }) => {
 
 const Tech = () => {
   return (
-    <div className="flex flex-wrap full mx-10 text-white justify-center items-center gap-14">
-      {technologies.map((tech, index) => (
-        <TechCard key={tech.name} index={index} {...tech} />
-      ))}
+    <div className="flex flex-col justify-center items-center">
+      <div className=" flex justify-start">
+        <motion.div variants={textVariant()}>
+          <h1 className="font-bold text-3xl text-start">My hard skills</h1>
+        </motion.div>
+      </div>
+      <div className="flex flex-wrap justify-around items-center max-w-3xl m-5 gap-14 ">
+        {technologies.map((tech, index) => (
+          <TechCard key={tech.name} index={index} {...tech} />
+        ))}
+      </div>
     </div>
   );
 };

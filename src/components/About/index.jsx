@@ -13,17 +13,18 @@ const services = [
     title: "Web Developer",
     icon: "/assets/web.png",
   },
-  {
-    title: "React Native Developer",
-    icon: "/assets/mobile.png",
-  },
+
   {
     title: "Backend Developer",
     icon: "/assets/backend.png",
   },
   {
-    title: "Content Creator",
+    title: "Frontend Developer",
     icon: "/assets/creator.png",
+  },
+  {
+    title: "React Native Developer",
+    icon: "/assets/mobile.png",
   },
 ];
 
@@ -49,24 +50,23 @@ const ServiceCard = ({ title, icon, index }) => {
 
 const About = () => {
   return (
-    <div className="flex flex-col justify-center items-center overflow-hidden gap-1 sm:gap-5">
-      <motion.div variants={textVariant()}>
-        <h1 className="text-purple-300 text-lg">Introduction</h1>
-        <h1 className={`${styles.sectionHeadText} text-4xl 2xl:text-7xl`}>
-          Overview.
-        </h1>
-      </motion.div>
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className=" text-white w-10/12 max-w-3xl text-md shadow-2xl"
-      >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
-      </motion.p>
-      <div className="w-11/12">
+    <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col">
+        <motion.div variants={textVariant()}>
+          <h1 className="font-bold text-3xl">Introduction Overview.</h1>
+        </motion.div>
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className="mt-3 max-w-3xl leading-8 2xl:text-2xl"
+        >
+          I'm a skilled software developer with experience in TypeScript and
+          JavaScript, and expertise in frameworks like React, Node.js, and
+          Three.js. I'm a quick learner and collaborate closely with clients to
+          create efficient, scalable, and user-friendly solutions that solve
+          real-world problems. Let's work together to bring your ideas to life!
+        </motion.p>
+      </div>
+      <div className="w-full m-5 ">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

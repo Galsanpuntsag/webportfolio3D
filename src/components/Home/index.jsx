@@ -7,12 +7,12 @@ import { SectionWrapper } from "@/hoc";
 
 const Home = () => {
   return (
-    <div className="flex flex-col h-screen w-screen justify-evenly items-center overflow-hidden  ">
-      <div className=" h-1/4 w-full">
-        <Hometext />
-      </div>
-      <div className="flex-none h-1/2 w-full root">
+    <div className="flex h-screen w-screen justify-evenly items-center overflow-hidden  ">
+      <div className="flex-1 h-screen">
         <App />
+      </div>
+      <div className="flex-1">
+        <Hometext />
       </div>
     </div>
   );

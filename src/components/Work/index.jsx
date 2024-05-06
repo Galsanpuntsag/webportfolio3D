@@ -27,7 +27,7 @@ const projects = [
       },
     ],
     image: "/assets/Income.png",
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Galsanpuntsag",
   },
   {
     name: "Food Delivery",
@@ -48,7 +48,7 @@ const projects = [
       },
     ],
     image: "/assets/food.png",
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Galsanpuntsag",
   },
   {
     name: "Trip Guide",
@@ -69,7 +69,7 @@ const projects = [
       },
     ],
     image: "/assets/nomad.png",
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Galsanpuntsag",
   },
   {
     name: "Admin Page",
@@ -90,68 +90,69 @@ const projects = [
       },
     ],
     image: "/assets/admin.png",
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Galsanpuntsag",
   },
 ];
 const ProjectCard = ({ project, index }) => {
   return (
-    <motion.div
-      key={project.name}
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-    >
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="p-5 rounded-2xl bg-gray-800 h-full sm:w-[360px] w-full"
+    <div className="flex">
+      <motion.div
+        key={project.name}
+        variants={fadeIn("up", "spring", index * 0.5, 0.75)}
       >
-        <div className="relative w-full h-[200px]">
-          <img
-            src={project.image}
-            alt={project.name}
-            className="w-full h-full rounded-2xl object-cover"
-          />
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <a
-              href={project.source_code_link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-            >
-              <img
-                src="/assets/github.png"
-                alt="github"
-                className="w-1/2 h-1/2 object-contain"
-              />
-            </a>
+        <Tilt
+          options={{
+            max: 45,
+            scale: 1,
+            speed: 450,
+          }}
+          className="p-5 rounded-2xl bg-gray-800 h-full sm:w-[360px] w-full"
+        >
+          <div className="relative w-full h-[200px]">
+            <img
+              src={project.image}
+              alt={project.name}
+              className="w-full h-full rounded-2xl object-cover"
+            />
+            <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+              <a
+                href={project.source_code_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              >
+                <img
+                  src="/assets/github.png"
+                  alt="github"
+                  className="w-1/2 h-1/2 object-contain"
+                />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="mt-5">
-          <h3 className="font-bold text-[24px]">{project.name}</h3>
-          <p className="mt-2 text-[14px]">{project.description}</p>
-        </div>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <p key={tag.name} className={`text-[18px] ${tag.color}`}>
-              #{tag.name}
-            </p>
-          ))}
-        </div>
-      </Tilt>
-    </motion.div>
+          <div className="mt-5">
+            <h3 className="font-bold text-2xl">{project.name}</h3>
+            <p className="mt-2 text-[14px]">{project.description}</p>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <p key={tag.name} className={`text-[18px] ${tag.color}`}>
+                #{tag.name}
+              </p>
+            ))}
+          </div>
+        </Tilt>
+      </motion.div>
+    </div>
   );
 };
 
 const Work = () => {
   return (
-    <>
-      <motion.div variants={textVariant()} className="text-2xl flex flex-col">
-        <h1 className={styles.sectionSubText}>My work</h1>
-        <h1 className={`${styles.sectionHeadText}`}>Projects.</h1>
-      </motion.div>
-      <div className="w-full flex">
+    <div className="flex flex-col justify-center items-center">
+      <div className=" flex flex-col">
+        <motion.div variants={textVariant()}>
+          <h1 className="font-bold text-3xl">My Projects</h1>
+        </motion.div>
         <motion.div
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 max-w-3xl leading-8 2xl:text-2xl"
@@ -163,12 +164,12 @@ const Work = () => {
           and manage projects effetively.
         </motion.div>
       </div>
-      <div className="mt-20 flex flex-wrap  gap-7">
+      <div className="flex flex-wrap justify-center items-center m-5 max-w-3xl gap-5">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} index={index} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
