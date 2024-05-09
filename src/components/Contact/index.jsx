@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
-import { styles } from "../../styles";
 import { SectionWrapper } from "@/hoc";
 import { slideIn } from "../utils/motion";
 
@@ -46,14 +44,13 @@ const Contact = () => {
   };
 
   return (
-    <div className="xl:mt-12 xl:flex-row w-full lg:mt-0 lg:gap-0 flex-col-reverse flex gap-10 overflow-hidden">
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[0.75] bg-slate-950 bg-black-100 p-8 rounded-2xl"
-      >
-        <p className={styles.heroHeadText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
-        <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
+    <div>
+      <h3 className="font-bold text-3xl m-5">Contact Me</h3>
+      <div className=" bg-slate-950 w-96 lg:w-[800px] p-8 rounded-2xl">
+        <form
+          onSubmit={handleSubmit}
+          className=" flex flex-col gap-4 lg:w-full"
+        >
           <label className="flex flex-col">
             <span className="font-medium mb-4">Your name</span>
             <input
@@ -97,7 +94,7 @@ const Contact = () => {
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
-      </motion.div>
+      </div>
     </div>
   );
 };

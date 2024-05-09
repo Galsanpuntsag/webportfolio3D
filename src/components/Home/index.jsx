@@ -8,11 +8,11 @@ import { SectionWrapper } from "@/hoc";
 const Home = () => {
   return (
     <div className="flex h-screen w-screen justify-evenly items-center overflow-hidden  ">
-      <div className="flex-1 h-screen">
-        <App />
-      </div>
       <div className="flex-1">
         <Hometext />
+      </div>
+      <div className="flex-1 h-screen">
+        <App />
       </div>
     </div>
   );

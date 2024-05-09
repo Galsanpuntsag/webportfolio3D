@@ -6,8 +6,54 @@ import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "@/hoc";
 import { styles } from "@/styles";
+import Link from "next/link";
 
 const projects = [
+  {
+    name: "Trip Guide",
+    description:
+      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    tags: [
+      {
+        name: "typescript",
+        color: "text-blue-400",
+      },
+      {
+        name: "mongodb",
+        color: "text-green-400",
+      },
+      {
+        name: "tailwind css",
+        color: "text-pink-500",
+      },
+    ],
+    image: "/assets/nomad.png",
+    link: "https://nomad-tour-front.vercel.app/",
+    source_code_link: "https://github.com/Galsanpuntsag",
+  },
+
+  {
+    name: "Food Delivery",
+    description:
+      "Web application that enables users to order food. User need to save your location and information. Then User can order food. ",
+    tags: [
+      {
+        name: "nextjs",
+        color: "text-blue-400",
+      },
+      {
+        name: "mongodb",
+        color: "text-green-400",
+      },
+      {
+        name: "mui",
+        color: "text-pink-500",
+      },
+    ],
+    image: "/assets/food.png",
+    link: "https://food-application-irli-4d4wvxz1a-galsanpuntsags-projects.vercel.app/home",
+    source_code_link: "https://github.com/Galsanpuntsag",
+  },
   {
     name: "Income Expence tracker",
     description:
@@ -22,53 +68,12 @@ const projects = [
         color: "text-green-400",
       },
       {
-        name: "tailwind",
+        name: "tailwind css",
         color: "text-pink-500",
       },
     ],
     image: "/assets/Income.png",
-    source_code_link: "https://github.com/Galsanpuntsag",
-  },
-  {
-    name: "Food Delivery",
-    description:
-      "Web application that enables users to order food. User need to save your location and information. Then User can order food. ",
-    tags: [
-      {
-        name: "react",
-        color: "text-blue-400",
-      },
-      {
-        name: "restapi",
-        color: "text-green-400",
-      },
-      {
-        name: "scss",
-        color: "text-pink-500",
-      },
-    ],
-    image: "/assets/food.png",
-    source_code_link: "https://github.com/Galsanpuntsag",
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "text-blue-400",
-      },
-      {
-        name: "supabase",
-        color: "text-green-400",
-      },
-      {
-        name: "css",
-        color: "text-pink-500",
-      },
-    ],
-    image: "/assets/nomad.png",
+    link: "https://income-expence-tracker-46cj-gc1kzu00p-galsanpuntsag.vercel.app/login",
     source_code_link: "https://github.com/Galsanpuntsag",
   },
   {
@@ -81,15 +86,16 @@ const projects = [
         color: "text-blue-400",
       },
       {
-        name: "supabase",
+        name: "mongodb",
         color: "text-green-400",
       },
       {
-        name: "css",
+        name: "mui",
         color: "text-pink-500",
       },
     ],
     image: "/assets/admin.png",
+    link: "https://github.com/Galsanpuntsag",
     source_code_link: "https://github.com/Galsanpuntsag",
   },
 ];
@@ -97,7 +103,7 @@ const ProjectCard = ({ project, index }) => {
   return (
     <div className="flex">
       <motion.div
-        key={project.name}
+        key={project?.name}
         variants={fadeIn("up", "spring", index * 0.5, 0.75)}
       >
         <Tilt
@@ -110,13 +116,13 @@ const ProjectCard = ({ project, index }) => {
         >
           <div className="relative w-full h-[200px]">
             <img
-              src={project.image}
-              alt={project.name}
+              src={project?.image}
+              alt={project?.name}
               className="w-full h-full rounded-2xl object-cover"
             />
             <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
               <a
-                href={project.source_code_link}
+                href={project?.source_code_link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
@@ -131,10 +137,17 @@ const ProjectCard = ({ project, index }) => {
           </div>
           <div className="mt-5">
             <h3 className="font-bold text-2xl">{project.name}</h3>
-            <p className="mt-2 text-[14px]">{project.description}</p>
+            <p className="my-2 text-[14px]">{project.description}</p>
+            <Link
+              className="text-orange-500 hover:underline font-bold"
+              href={project?.link}
+            >
+              View Project
+            </Link>
           </div>
+
           <div className="mt-4 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
+            {project?.tags.map((tag) => (
               <p key={tag.name} className={`text-[18px] ${tag.color}`}>
                 #{tag.name}
               </p>

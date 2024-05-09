@@ -56,6 +56,8 @@ const technologies = [
   },
   { name: "QraphQL", icon: "/assets/tech/graphql.jpeg" },
   { name: "Jest", icon: "/assets/tech/jest.jpeg" },
+  { name: "Github", icon: "/assets/tech/github.jpeg" },
+  { name: "NextJS", icon: "/assets/tech/next.jpeg" },
 ];
 
 const defaultOptions = {
@@ -74,14 +76,14 @@ const TechCard = ({ name, icon, index }) => {
   return (
     <Tilt
       options={defaultOptions}
-      className=" w-[60px] h-[60px] lg:w-28 lg:h-28"
+      className=" w-[50px] h-[50px] lg:w-[109px] lg:h-[109px]"
     >
       <motion.div
         key={index}
         variants={fadeIn("left", "spring", 0.5 * index, 0.75)}
         className="font-bold gap-3"
       >
-        <img src={icon} alt="" />
+        <img className="bg-transparent rounded-full" src={icon} alt="" />
         {name}
       </motion.div>
     </Tilt>
@@ -90,10 +92,12 @@ const TechCard = ({ name, icon, index }) => {
 
 const Tech = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div>
       <div className=" flex justify-start">
         <motion.div variants={textVariant()}>
-          <h1 className="font-bold text-3xl text-start">My hard skills</h1>
+          <h1 className="font-bold text-3xl text-start ml-10">
+            My Hard Skills
+          </h1>
         </motion.div>
       </div>
       <div className="flex flex-wrap justify-around items-center max-w-3xl m-5 gap-14 ">
