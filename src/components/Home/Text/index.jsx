@@ -5,7 +5,8 @@ import Typewriter from "typewriter-effect";
 import { useRouter } from "next/navigation";
 
 const downloadCV = () => {
-  const url = "/images/myCV.pdf";
+  const url =
+    "https://www.figma.com/design/Kodzp77h4PinapSl4wkMxg/Untitled?node-id=0%3A1&t=TzbMJU4RAcyFtzSd-1";
   const link = document.createElement("a");
   link.href = url;
   link.setAttribute("download", "Your_CV.pdf");
